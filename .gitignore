@@ -106,3 +106,5 @@ notebook/
 .ipynb_checkpoints/
 output/
 cosnomi.json
+
+input/
