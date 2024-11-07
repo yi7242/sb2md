@@ -19,7 +19,10 @@ export async function run() {
     // console.log(parsed);
     const markdown = pageToMarkdown(parsed);
     const newTitle = escapePageName(page.title);
-    fs.writeFileSync(`./output/${newTitle}.md`, markdown);
+    const filePath = `./output/${newTitle}.md`;
+    fs.writeFileSync(filePath, markdown);
+    const updatedTime = new Date(page.updated * 1000);
+    fs.utimesSync(filePath, updatedTime, updatedTime);
     console.log(`Created ${newTitle}.md`);
   }
   console.info('Downloading images');
