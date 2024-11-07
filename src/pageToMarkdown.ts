@@ -47,9 +47,7 @@ function nodeToMarkdown(node: Node): string {
     return `(${node.path})`;
   }
   if (node.type === 'image') {
-    // FIXME
-    const src = '03_Attachments/' + (node.src.startsWith('https://gyazo.com') ? enqueueGyazo(node.src) : enqueueImage(node.src));
-    return `![[${src}]]`
+    return `![image](${node.src})`
   }
   if (node.type === 'link') {
     const content = node.content === '' ? node.href : node.content;
