@@ -47,7 +47,8 @@ function nodeToMarkdown(node: Node): string {
     return `(${node.path})`;
   }
   if (node.type === 'image') {
-    return `![image](${node.src})`
+    const src = 'assets/' + (node.src.startsWith('https://gyazo.com') ? enqueueGyazo(node.src) : enqueueImage(node.src));
+    return `![[${src}]]`
   }
   if (node.type === 'link') {
     const content = node.content === '' ? node.href : node.content;
