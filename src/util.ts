@@ -7,7 +7,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export function escapePageName(pageName: string): string {
-  return pageName.replaceAll("/", " ").replaceAll(":", " ");
+  return pageName.replaceAll("/", " ").replaceAll(":", " ").replaceAll("|", " ").replaceAll("?", " ").replaceAll("*", " ").replaceAll('"', " ").replaceAll("<", " ").replaceAll(">", " ").replaceAll("\\", " ");
 }
 
 let downloadList: { url: string; dest: string }[] = [];
